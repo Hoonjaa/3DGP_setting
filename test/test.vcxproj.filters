@@ -52,9 +52,6 @@
     <ClInclude Include="test.h">
       <Filter>Define</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Define</Filter>
     </ClInclude>
@@ -91,14 +88,11 @@
     <ClInclude Include="TestScene.h">
       <Filter>Engine\05.Scene\TestScene</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Engine\01.Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Core.cpp">
       <Filter>Engine\02.Core</Filter>
     </ClCompile>
@@ -128,6 +122,12 @@
     </ClCompile>
     <ClCompile Include="TestScene.cpp">
       <Filter>Engine\05.Scene\TestScene</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Engine\01.Header</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Engine\02.Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
