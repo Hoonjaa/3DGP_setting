@@ -41,6 +41,9 @@
     <Filter Include="Engine\05.Scene\TestScene">
       <UniqueIdentifier>{3ea144f1-35ea-41f2-b28b-d6896770e362}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04.Object\Airplane">
+      <UniqueIdentifier>{92232618-9cda-4f80-bd36-cc28f8d2e7b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -91,6 +94,9 @@
     <ClInclude Include="stdafx.h">
       <Filter>Engine\01.Header</Filter>
     </ClInclude>
+    <ClInclude Include="Airplane.h">
+      <Filter>Engine\04.Object\Airplane</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -128,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="test.cpp">
       <Filter>Engine\02.Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Airplane.cpp">
+      <Filter>Engine\04.Object\Airplane</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
