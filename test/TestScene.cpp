@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "TestScene.h"
+#include "Airplane.h"
 
 TestScene::TestScene()
 {
@@ -23,14 +24,21 @@ void TestScene::Enter(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* pd3dC
 		);
 	}
 
-	CubeMeshDiffused* pCubeMesh = new CubeMeshDiffused(pd3dDevice, pd3dCommandList, 12.0f, 12.0f, 12.0f);
+	/*CubeMeshDiffused* pCubeMesh = new CubeMeshDiffused(pd3dDevice, pd3dCommandList, 12.0f, 12.0f, 12.0f);
 	Object* TestObj = new Object();
 	TestObj->SetMesh(pCubeMesh);
 	DiffusedShader* pShader = new DiffusedShader();
 	pShader->CreateShader(pd3dDevice);
 	pShader->CreateShaderVariables(pd3dDevice, pd3dCommandList);
 	TestObj->SetShader(pShader);
-	AddObject(TestObj, GROUP_TYPE::TEST);
+	AddObject(TestObj, GROUP_TYPE::TEST);*/
+
+	Airplane* airplane = new Airplane(pd3dDevice, pd3dCommandList, XMFLOAT3(0.0f, 0.0f, 0.0f));
+	DiffusedShader* pShader = new DiffusedShader();
+	pShader->CreateShader(pd3dDevice);
+	pShader->CreateShaderVariables(pd3dDevice, pd3dCommandList);
+	airplane->SetShader(pShader);
+	AddObject(airplane, GROUP_TYPE::TEST);
 }
 
 void TestScene::Exit()
