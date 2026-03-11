@@ -385,3 +385,10 @@ CubeMeshDiffused::CubeMeshDiffused(ID3D12Device* pd3dDevice, ID3D12GraphicsComma
 CubeMeshDiffused::~CubeMeshDiffused()
 {
 }
+
+GroundMeshDiffused::GroundMeshDiffused(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* pd3dCommandlist
+    , float fWidth = 2.0f, float fHeight = 2.0f) : Mesh(pd3dDevice, pd3dCommandlist)
+{
+    m_nVertices = 4;
+    m_nStride = sizeof(DiffusedVertex);
+}
