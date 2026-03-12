@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TestScene.h"
 #include "Airplane.h"
+#include "Ground.h"
 
 TestScene::TestScene()
 {
@@ -39,6 +40,10 @@ void TestScene::Enter(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* pd3dC
 	pShader->CreateShaderVariables(pd3dDevice, pd3dCommandList);
 	airplane->SetShader(pShader);
 	AddObject(airplane, GROUP_TYPE::TEST);
+
+	Ground* ground = new Ground(pd3dDevice, pd3dCommandList, XMFLOAT3(0.0f, 0.0f, 0.0f));
+	ground->SetShader(pShader);
+	AddObject(ground, GROUP_TYPE::TEST);
 }
 
 void TestScene::Exit()

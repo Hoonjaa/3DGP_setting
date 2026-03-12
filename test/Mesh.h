@@ -136,7 +136,7 @@ public:
 class GroundMeshDiffused : public Mesh
 {
 public:
-	GroundMeshDiffused(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* pd3dCommandlist
+	GroundMeshDiffused(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* pd3dCommandList
 		, float fWidth = 2.0f, float fHeight = 2.0f);
 	virtual ~GroundMeshDiffused();
 };

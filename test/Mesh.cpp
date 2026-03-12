@@ -386,9 +386,40 @@ CubeMeshDiffused::~CubeMeshDiffused()
 {
 }
 
-GroundMeshDiffused::GroundMeshDiffused(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* pd3dCommandlist
-    , float fWidth = 2.0f, float fHeight = 2.0f) : Mesh(pd3dDevice, pd3dCommandlist)
+GroundMeshDiffused::GroundMeshDiffused(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* pd3dCommandList
+    , float fWidth, float fHeight) : Mesh(pd3dDevice, pd3dCommandList)
 {
     m_nVertices = 4;
     m_nStride = sizeof(DiffusedVertex);
+    m_d3dPrimitiveTopology = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
+
+    float fx = fWidth * 0.5f, fz = fHeight * 0.5f;
+    DiffusedVertex pVertices[4];
+    pVertices[0] = DiffusedVertex(XMFLOAT3(-fx, 0.0f, +fz), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f));
+    pVertices[1] = DiffusedVertex(XMFLOAT3(+fx, 0.0f, +fz), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f));
+    pVertices[2] = DiffusedVertex(XMFLOAT3(+fx, 0.0f, -fz), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f));
+    pVertices[3] = DiffusedVertex(XMFLOAT3(-fx, 0.0f, -fz), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f));
+
+    m_pd3dVertexBuffer = ::CreateBufferResource(pd3dDevice, pd3dCommandList, pVertices,
+        m_nStride * m_nVertices, D3D12_HEAP_TYPE_DEFAULT,
+        D3D12_RESOURCE_STATE_VERTEX_AND_CONSTANT_BUFFER, &m_pd3dVertexUploadBuffer);
+    m_d3dVertexBufferView.BufferLocation = m_pd3dVertexBuffer->GetGPUVirtualAddress();
+    m_d3dVertexBufferView.StrideInBytes = m_nStride;
+    m_d3dVertexBufferView.SizeInBytes = m_nStride * m_nVertices;
+
+    m_nIndices = 6;
+    UINT pnIndices[6];
+    pnIndices[0] = 0; pnIndices[1] = 1; pnIndices[2] = 3;
+    pnIndices[3] = 1; pnIndices[4] = 2; pnIndices[5] = 3;
+
+    m_pd3dIndexBuffer = ::CreateBufferResource(pd3dDevice, pd3dCommandList, pnIndices,
+        sizeof(UINT) * m_nIndices, D3D12_HEAP_TYPE_DEFAULT, D3D12_RESOURCE_STATE_INDEX_BUFFER,
+        &m_pd3dIndexUploadBuffer);
+    m_d3dIndexBufferView.BufferLocation = m_pd3dIndexBuffer->GetGPUVirtualAddress();
+    m_d3dIndexBufferView.Format = DXGI_FORMAT_R32_UINT;
+    m_d3dIndexBufferView.SizeInBytes = sizeof(UINT) * m_nIndices;
+}
+
+GroundMeshDiffused::~GroundMeshDiffused()
+{
 }

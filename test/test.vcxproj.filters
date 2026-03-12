@@ -47,6 +47,9 @@
     <Filter Include="Engine\03.Manager\Resource">
       <UniqueIdentifier>{f28cc989-5854-4999-ba34-f69e52d19061}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04.Object\Ground">
+      <UniqueIdentifier>{d1a14d85-a1cb-4730-903a-1af1dec76597}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -106,6 +109,9 @@
     <ClInclude Include="stb_image.h">
       <Filter>Engine\01.Header</Filter>
     </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Engine\04.Object\Ground</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -149,6 +155,9 @@
     </ClCompile>
     <ClCompile Include="ResourceMgr.cpp">
       <Filter>Engine\03.Manager\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Engine\04.Object\Ground</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
