@@ -100,7 +100,7 @@ class DiffusedVertex : public Vertex
 {
 protected:
 	//정점의 색상이다. 
-	XMFLOAT4 m_xmf4Diffuse;
+	//XMFLOAT4 m_xmf4Diffuse;
 public:
 	DiffusedVertex() {
 		m_xmf3Position = XMFLOAT3(0.0f, 0.0f, 0.0f); 
